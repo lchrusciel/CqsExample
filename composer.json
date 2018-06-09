@@ -16,8 +16,10 @@
         "symfony/yaml": "^4.1"
     },
     "require-dev": {
-        "symfony/dotenv": "^4.1",
-        "behat/behat": "^3.4"
+        "behat/behat": "^3.4",
+        "phpstan/phpstan": "^0.9.2",
+        "sylius-labs/coding-standard": "^2.0",
+        "symfony/dotenv": "^4.1"
     },
     "config": {
         "preferred-install": {
@@ -43,6 +45,11 @@
         "symfony/polyfill-php56": "*"
     },
     "scripts": {
+        "fix": "vendor/bin/ecs check --ansi --no-progress-bar bin public src --fix",
+        "analyse": [
+            "vendor/bin/ecs check --ansi --no-progress-bar bin public src",
+            "vendor/bin/phpstan analyse --ansi --no-progress -l max bin public src"
+        ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
