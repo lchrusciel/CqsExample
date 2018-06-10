@@ -1,4 +1,4 @@
-@customer
+@customer @application
 Feature: Changing customers email
   In order to use my account even if I change my email
   As a Customer

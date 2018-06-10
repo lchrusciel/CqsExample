@@ -1,4 +1,4 @@
-@customer
+@customer @application
 Feature: Registering a customer
   In order to be able to use application fully
   As a Customer

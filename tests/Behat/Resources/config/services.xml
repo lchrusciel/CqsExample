@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services">
+    <services>
+        <service id="App\Tests\Behat\Context\SetupContext">
+            <tag name="fob.context_service" />
+        </service>
+        <service id="App\Tests\Behat\Context\ApplicationContext">
+            <tag name="fob.context_service" />
+        </service>
+    </services>
+</container>

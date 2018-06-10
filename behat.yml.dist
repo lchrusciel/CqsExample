@@ -1,0 +1,19 @@
+default:
+    extensions:
+        FriendsOfBehat\CrossContainerExtension: ~
+        FriendsOfBehat\SymfonyExtension:
+            kernel:
+                bootstrap: 'vendor/autoload.php'
+                path: 'src/Infrastructure/Kernel.php'
+                class: 'App\Infrastructure\Kernel'
+        FriendsOfBehat\ContextServiceExtension:
+           imports:
+               - 'tests/Behat/Resources/config/services.xml'
+    suites:
+        application_features:
+            paths: ['%paths.base%/features']
+            contexts_services:
+                - 'App\Tests\Behat\Context\ApplicationContext'
+                - 'App\Tests\Behat\Context\SetupContext'
+            filters:
+                tags: '@application'
