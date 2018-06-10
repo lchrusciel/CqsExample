@@ -15,8 +15,12 @@ services:
     messenger.bus:
         alias: messenger.bus.default
 
+    App\Domain\Customers:
+        class: App\Infrastructure\Repository\InMemoryCustomers
+
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
-#    App\:
-#        resource: '../src/*'
-#        exclude: '../src/{Entity,Migrations,Tests,Kernel.php}'
+    App\Application\Handler\:
+        resource: '../src/Application/Handler/*'
+        tags:
+            - messenger.message_handler
