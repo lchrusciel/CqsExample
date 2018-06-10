@@ -6,6 +6,7 @@ namespace App\Infrastructure\Repository;
 
 use App\Domain\Customer;
 use App\Domain\Customers;
+use Webmozart\Assert\Assert;
 
 final class InMemoryCustomers implements Customers
 {
@@ -14,9 +15,14 @@ final class InMemoryCustomers implements Customers
 
     public function getCustomerByEmail(string $customerEmail): Customer
     {
-        return array_filter($this->customers, function (Customer $customer) use ($customerEmail): bool {
+        $customers = array_filter($this->customers, function (Customer $customer) use ($customerEmail): bool {
             return $customerEmail === $customer->email();
-        })[0];
+        });
+
+        Assert::notEmpty($customers);
+        Assert::isInstanceOf($customers[0], Customer::class);
+
+        return $customers[0];
     }
 
     public function add(Customer $customer): void

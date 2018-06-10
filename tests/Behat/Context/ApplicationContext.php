@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Tests\Behat\Context;
 
 use App\Application\Command\RegisterCustomer;
+use App\Domain\Customers;
 use Behat\Behat\Context\Context;
 use Behat\Behat\Tester\Exception\PendingException;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -13,10 +14,13 @@ final class ApplicationContext implements Context
 {
     /** @var MessageBusInterface */
     private $messageBus;
+    /** @var Customers */
+    private $customers;
 
-    public function __construct(MessageBusInterface $messageBus)
+    public function __construct(MessageBusInterface $messageBus, Customers $customers)
     {
         $this->messageBus = $messageBus;
+        $this->customers = $customers;
     }
 
     /**
@@ -40,6 +44,6 @@ final class ApplicationContext implements Context
      */
     public function iShouldBeAbleToLogInAsWithPassword(string $email, string $password): void
     {
-        throw new PendingException();
+        $this->customers->getCustomerByEmail($email);
     }
 }
