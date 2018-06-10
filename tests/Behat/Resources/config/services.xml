@@ -6,6 +6,7 @@
             <tag name="fob.context_service" />
         </service>
         <service id="App\Tests\Behat\Context\ApplicationContext">
+            <argument type="service" id="__symfony__.messenger.bus" />
             <tag name="fob.context_service" />
         </service>
     </services>
