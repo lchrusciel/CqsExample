@@ -140,6 +140,9 @@
     "sylius-labs/coding-standard": {
         "version": "v2.0.0"
     },
+    "symfony/browser-kit": {
+        "version": "v4.1.0"
+    },
     "symfony/cache": {
         "version": "v4.1.0"
     },
@@ -162,6 +165,9 @@
         "version": "v4.1.0"
     },
     "symfony/dependency-injection": {
+        "version": "v4.1.0"
+    },
+    "symfony/dom-crawler": {
         "version": "v4.1.0"
     },
     "symfony/dotenv": {
