@@ -15,5 +15,6 @@ default:
             contexts_services:
                 - 'App\Tests\Behat\Context\ApplicationContext'
                 - 'App\Tests\Behat\Context\SetupContext'
+                - 'App\Tests\Behat\Context\TransformContext'
             filters:
                 tags: '@application'

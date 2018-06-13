@@ -3,10 +3,15 @@
 <container xmlns="http://symfony.com/schema/dic/services">
     <services>
         <service id="App\Tests\Behat\Context\SetupContext">
+            <argument type="service" id="__symfony__.messenger.bus" />
             <tag name="fob.context_service" />
         </service>
         <service id="App\Tests\Behat\Context\ApplicationContext">
             <argument type="service" id="__symfony__.messenger.bus" />
+            <argument type="service" id="__symfony__.App\Domain\Customers" />
+            <tag name="fob.context_service" />
+        </service>
+        <service id="App\Tests\Behat\Context\TransformContext">
             <argument type="service" id="__symfony__.App\Domain\Customers" />
             <tag name="fob.context_service" />
         </service>

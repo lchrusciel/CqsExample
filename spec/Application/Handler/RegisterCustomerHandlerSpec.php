@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace spec\App\Application\Handler;
 
 use App\Application\Command\RegisterCustomer;
-use App\Application\Handler\RegisterCustomerHandler;
 use App\Domain\Customer;
 use App\Domain\Customers;
 use PhpSpec\ObjectBehavior;

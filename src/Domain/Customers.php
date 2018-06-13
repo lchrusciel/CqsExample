@@ -6,7 +6,9 @@ namespace App\Domain;
 
 interface Customers
 {
-    public function getCustomerByEmail(string $email): Customer;
+    public function getCustomerByEmail(string $email): CustomerInterface;
 
-    public function add(Customer $customer): void;
+    public function add(CustomerInterface $customer): void;
+
+    public function getLatestCustomer(): CustomerInterface;
 }

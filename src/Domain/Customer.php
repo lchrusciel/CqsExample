@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Domain;
 
-final class Customer
+final class Customer implements CustomerInterface
 {
     /** @var string */
     private $email;

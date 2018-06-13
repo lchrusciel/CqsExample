@@ -17,7 +17,7 @@ final class ChangeCustomerEmailHandler
         $this->customers = $customers;
     }
 
-    public function __invoke(ChangeCustomerEmail $changeCustomerEmail)
+    public function __invoke(ChangeCustomerEmail $changeCustomerEmail): void
     {
         $customer = $this->customers->getCustomerByEmail($changeCustomerEmail->oldEmail());
 
