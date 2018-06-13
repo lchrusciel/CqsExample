@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context;
 
+use App\Application\Command\ChangeCustomerEmail;
 use App\Application\Command\RegisterCustomer;
 use App\Domain\Customers;
 use Behat\Behat\Context\Context;
-use Behat\Behat\Tester\Exception\PendingException;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 final class ApplicationContext implements Context
@@ -32,11 +32,11 @@ final class ApplicationContext implements Context
     }
 
     /**
-     * @When I change my email to :email
+     * @When /^I change (my email) to "([^"]+)"$/
      */
-    public function iChangeMyEmailTo(string $email): void
+    public function iChangeMyEmailTo(string $oldEmail, string $newEmail): void
     {
-        throw new PendingException();
+        $this->messageBus->dispatch(new ChangeCustomerEmail($oldEmail, $newEmail));
     }
 
     /**
