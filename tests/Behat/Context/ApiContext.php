@@ -40,12 +40,20 @@ final class ApiContext implements Context
      */
     public function iChangeMyEmailTo(CustomerInterface $customer, string $newEmail): void
     {
+        $this->iTryToChangeMyEmailTo($customer, $newEmail);
+
+        Assert::eq($this->response()->getStatusCode(), Response::HTTP_NO_CONTENT);
+    }
+
+    /**
+     * @When /^I try to change (my) email to "([^"]+)"$/
+     */
+    public function iTryToChangeMyEmailTo(CustomerInterface $customer, string $newEmail): void
+    {
         $this->client->restart();
         $this->client->request('PATCH', 'customers/' . $customer->id(), [
             'email' => $newEmail,
         ]);
-
-        Assert::eq($this->response()->getStatusCode(), Response::HTTP_NO_CONTENT);
     }
 
     /**
@@ -57,6 +65,14 @@ final class ApiContext implements Context
         $this->client->request('GET', 'customers/' . $email);
 
         Assert::eq($this->response()->getStatusCode(), Response::HTTP_OK);
+    }
+
+    /**
+     * @Then I should be notified that this email is wrong
+     */
+    public function iShouldBeNotifiedThatThisEmailIsWrong(): void
+    {
+        Assert::eq($this->response()->getStatusCode(), Response::HTTP_BAD_REQUEST);
     }
 
     private function response(): Response
