@@ -11,6 +11,10 @@
             <argument type="service" id="__symfony__.App\Domain\Customers" />
             <tag name="fob.context_service" />
         </service>
+        <service id="App\Tests\Behat\Context\ApiContext">
+            <argument type="service" id="__symfony__.test.client" />
+            <tag name="fob.context_service" />
+        </service>
         <service id="App\Tests\Behat\Context\TransformContext">
             <argument type="service" id="__symfony__.App\Domain\Customers" />
             <tag name="fob.context_service" />

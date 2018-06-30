@@ -18,3 +18,12 @@ default:
                 - 'App\Tests\Behat\Context\TransformContext'
             filters:
                 tags: '@application'
+
+        api_features:
+            paths: ['%paths.base%/features']
+            contexts_services:
+                - 'App\Tests\Behat\Context\ApiContext'
+                - 'App\Tests\Behat\Context\SetupContext'
+                - 'App\Tests\Behat\Context\TransformContext'
+            filters:
+                tags: '@api'

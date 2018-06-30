@@ -6,6 +6,7 @@ namespace App\Tests\Behat\Context;
 
 use App\Application\Command\ChangeCustomerEmail;
 use App\Application\Command\RegisterCustomer;
+use App\Domain\CustomerInterface;
 use App\Domain\Customers;
 use Behat\Behat\Context\Context;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -32,11 +33,11 @@ final class ApplicationContext implements Context
     }
 
     /**
-     * @When /^I change (my email) to "([^"]+)"$/
+     * @When /^I change (my) email to "([^"]+)"$/
      */
-    public function iChangeMyEmailTo(string $oldEmail, string $newEmail): void
+    public function iChangeMyEmailTo(CustomerInterface $customer, string $newEmail): void
     {
-        $this->messageBus->dispatch(new ChangeCustomerEmail($oldEmail, $newEmail));
+        $this->messageBus->dispatch(new ChangeCustomerEmail($customer->email(), $newEmail));
     }
 
     /**

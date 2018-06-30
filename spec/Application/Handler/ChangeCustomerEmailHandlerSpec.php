@@ -22,6 +22,8 @@ final class ChangeCustomerEmailHandlerSpec extends ObjectBehavior
 
         $customer->changeEmail('rick@sanchez.com')->shouldBeCalled();
 
+        $customers->save()->shouldBeCalled();
+
         $this(new ChangeCustomerEmail('rick@morty.com', 'rick@sanchez.com'));
     }
 }

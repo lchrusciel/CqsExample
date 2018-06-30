@@ -1,3 +1,14 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+show:
+    methods: ['GET']
+    path: 'customers/{email}'
+    controller: App\Infrastructure\Controller\GetCustomerQuery
+
+create:
+    methods: ['POST']
+    path: 'customers/'
+    controller: App\Infrastructure\Controller\RegisterCustomerAction
+
+update:
+    methods: ['PATCH']
+    path: 'customers/{id}'
+    controller: App\Infrastructure\Controller\ChangeCustomerEmailAction

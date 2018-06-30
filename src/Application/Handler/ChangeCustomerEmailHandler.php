@@ -22,5 +22,7 @@ final class ChangeCustomerEmailHandler
         $customer = $this->customers->getCustomerByEmail($changeCustomerEmail->oldEmail());
 
         $customer->changeEmail($changeCustomerEmail->newEmail());
+
+        $this->customers->save();
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests\Behat\Context;
 
+use App\Domain\CustomerInterface;
 use App\Domain\Customers;
 use Behat\Behat\Context\Context;
 
@@ -18,12 +19,10 @@ final class TransformContext implements Context
     }
 
     /**
-     * @Transform /^my email$/
+     * @Transform /^my$/
      */
-    public function getLatestCustomer(): string
+    public function getLatestCustomer(): CustomerInterface
     {
-        $customer = $this->customers->getLatestCustomer();
-
-        return $customer->email();
+        return $this->customers->getLatestCustomer();
     }
 }

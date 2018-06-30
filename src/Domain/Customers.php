@@ -11,4 +11,8 @@ interface Customers
     public function add(CustomerInterface $customer): void;
 
     public function getLatestCustomer(): CustomerInterface;
+
+    public function save(): void;
+
+    public function get(int $id): CustomerInterface;
 }

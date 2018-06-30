@@ -16,11 +16,12 @@ services:
         alias: messenger.bus.default
 
     App\Domain\Customers:
-        class: App\Infrastructure\Repository\InMemoryCustomers
+        class: App\Infrastructure\Repository\DatabaseCustomers
 
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
     App\Application\Handler\:
         resource: '../src/Application/Handler/*'
         tags:
             - messenger.message_handler
+
+    App\Infrastructure\Controller\:
+        resource: '../src/Infrastructure/Controller/*'
