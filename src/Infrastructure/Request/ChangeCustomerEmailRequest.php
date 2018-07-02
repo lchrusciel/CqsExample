@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Request;
+namespace App\Infrastructure\Request;
 
 use App\Application\Command\ChangeCustomerEmail;
 use App\Domain\CustomerInterface;

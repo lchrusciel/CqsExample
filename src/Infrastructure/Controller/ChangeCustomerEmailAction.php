@@ -6,7 +6,7 @@ namespace App\Infrastructure\Controller;
 
 use App\Application\Command\ChangeCustomerEmail;
 use App\Domain\Customers;
-use App\Request\ChangeCustomerEmailRequest;
+use App\Infrastructure\Request\ChangeCustomerEmailRequest;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
