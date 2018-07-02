@@ -23,4 +23,5 @@ composer install --prefer-dist
 source .test.env
 composer validate --strict
 composer analyse
+composer test
 ```

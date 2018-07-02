@@ -55,6 +55,10 @@
             "vendor/bin/ecs check --ansi --no-progress-bar bin public src tests",
             "vendor/bin/phpstan analyse --ansi --no-progress -l max bin public src tests"
         ],
+        "test": [
+            "vendor/bin/phpspec run --ansi",
+            "vendor/bin/behat --colors"
+        ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
