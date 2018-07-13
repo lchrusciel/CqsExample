@@ -15,6 +15,7 @@ Sample CQS application with multi context feature interpretation.
 
 ```bash
 composer install --prefer-dist
+bin/console doctrine:schema:update --force
 ```
 
 ## Testing
